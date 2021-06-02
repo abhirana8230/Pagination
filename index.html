@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagination</title>
+    
+</head>
+
+<body>
+    <script>
+        //for creating an instance of XML http
+        var request = new XMLHttpRequest();
+
+        //creating a connection
+        request.open('GET', 'https://raw.githubusercontent.com/Rajavasanthan/jsondata/master/pagenation.json', true)
+
+        //sending the request from browser to server
+        request.send();
+
+        //loading the response
+        request.onload = function () {
+            var data = JSON.parse(this.response);
+
+            var div = document.createElement('div');
+            div.innerHTML = "DOM PAGINATION";
+            document.body.append(div);
+
+            // creating table
+            var container = document.createElement('container')
+            container.setAttribute('class', 'container');
+
+            var table = document.createElement('table')
+            table.setAttribute('class', 'table');
+            table.style.border="solid"
+            table.style.borderCollapse="collapse"
+            
+            
+
+            var thead = document.createElement('thead');
+            thead.setAttribute('class', 'thead');
+           
+
+            var tr = document.createElement('tr');
+            tr.style.border="solid"
+            tr.style.bordercollapse="collapse"
+        
+            
+            var th1 = createthtd('th1', 'ID');
+            var th2 = createthtd('th2', 'Name');
+            var th3 = createthtd('th3', 'Email');
+            tr.append(th1, th2, th3);
+            thead.append(tr);
+
+
+            function createthtd(elementname, value = "", classname = "") {
+                var td = document.createElement(elementname)
+                td.innerHTML = value;
+                td.setAttribute('class', 'classname');
+                return td
+            }
+
+
+            for (i = 0; i < 10; i++) {
+                //console.log(data);
+
+                var tbody = document.createElement('tbody');
+                tbody.setAttribute('class', 'tbody');
+
+                var td = document.createElement('td');
+                td.style.border="solid"
+            td.style.bordercollapse="collapse"
+
+                var td1 = createthtd('td1', data[i].id);
+                var td2 = createthtd('td2', data[i].name);
+                var td3 = createthtd('td3', data[i].email);
+
+                td.append(td1, td2, td3);
+                tbody.append(td);
+                table.append(thead, tbody);
+                container.append(table);
+                document.body.append(container)
+
+            }
+
+
+            var button1 = document.createElement('button');
+            button1.setAttribute('class', 'button');
+            button1.innerHTML = "1";
+            button1.addEventListener('click',foo1);
+            document.body.append(button1);
+
+            var button2 = document.createElement('button');
+            button2.setAttribute('class', 'button');
+            button2.innerHTML = "2";
+            button2.addEventListener('click',foo2);
+            document.body.append(button2);
+
+            var button3 = document.createElement('button');
+            button3.setAttribute('class', 'button');
+            button3.innerHTML = "3";
+            button3.addEventListener('click',foo3);
+            document.body.append(button3);
+
+            var button4 = document.createElement('button');
+            button4.setAttribute('class', 'button');
+            button4.innerHTML = "4";
+            button4.addEventListener('click',foo4);
+            document.body.append(button4);
+
+            var button5 = document.createElement('button');
+            button5.setAttribute('class', 'button');
+            button5.innerHTML = "5";
+            button5.addEventListener('click',foo5);
+            document.body.append(button5);
+
+            var button6 = document.createElement('button');
+            button6.setAttribute('class', 'button');
+            button6.innerHTML = "6";
+            button6.addEventListener('click',foo6);
+            document.body.append(button6);
+
+            var button7 = document.createElement('button');
+            button7.setAttribute('class', 'button');
+            button7.innerHTML = "7";
+            button7.addEventListener('click',foo7);
+            document.body.append(button7);
+
+            var button8 = document.createElement('button');
+            button8.setAttribute('class', 'button');
+            button8.innerHTML = "8";
+            button8.addEventListener('click',foo8);
+            document.body.append(button8);
+
+            var button9 = document.createElement('button');
+            button9.setAttribute('class', 'button');
+            button9.innerHTML = "9";
+            button9.addEventListener('click',foo9);
+            document.body.append(button9);
+
+            var button10 = document.createElement('button');
+            button10.setAttribute('class', 'button');
+            button10.innerHTML = "10";
+            button10.addEventListener('click',foo10);
+            document.body.append(button10);
+
+            var button_first = document.createElement('button');
+            button_first.setAttribute('class', 'button');
+            button_first.innerHTML = "first";
+            button_first.addEventListener('click',foo_first);
+            document.body.append(button_first);
+
+            var button_last = document.createElement('button');
+            button_last.setAttribute('class', 'button');
+            button_last.innerHTML = "last";
+            button_last.addEventListener('click',foo_last);
+            document.body.append(button_last);
+
+            var button_prev = document.createElement('button');
+            button_prev.setAttribute('class', 'button');
+            button_prev.innerHTML = "prev";
+            button_prev.addEventListener('click',foo_prev);
+            document.body.append(button_prev);
+
+
+            function foo1(){
+                table.innerHTML=""
+                for (i = 0; i < 10; i++) {
+                var tbody = document.createElement('tbody');
+                tbody.setAttribute('class', 'tbody');
+
+                var td = document.createElement('td');
+                var td1 = createthtd('td1', data[i].id);
+                var td2 = createthtd('td2', data[i].name);
+                var td3 = createthtd('td3', data[i].email);
+
+                td.append(td1, td2, td3);
+                tbody.append(td);
+                table.append(thead, tbody);
+                container.append(table);
+                document.body.append(container)
+            }
+
+            }
+
+            function foo2(){
+                table.innerHTML=""
+                for (i = 10; i < 20; i++) {
+                var tbody = document.createElement('tbody');
+                tbody.setAttribute('class', 'tbody');
+
+                var td = document.createElement('td');
+                var td1 = createthtd('td1', data[i].id);
+                var td2 = createthtd('td2', data[i].name);
+                var td3 = createthtd('td3', data[i].email);
+
+                td.append(td1, td2, td3);
+                tbody.append(td);
+                table.append(thead, tbody);
+                container.append(table);
+                document.body.append(container)
+            }
+            }
+
+            function foo3(){
+                table.innerHTML=""
+                for (i = 20; i < 30; i++) {
+                var tbody = document.createElement('tbody');
+                tbody.setAttribute('class', 'tbody');
+
+                var td = document.createElement('td');
+                var td1 = createthtd('td1', data[i].id);
+                var td2 = createthtd('td2', data[i].name);
+                var td3 = createthtd('td3', data[i].email);
+
+                td.append(td1, td2, td3);
+                tbody.append(td);
+                table.append(thead, tbody);
+                container.append(table);
+                document.body.append(container)
+            }
+            }
+
+            function foo4(){
+                table.innerHTML=""
+                for (i = 30; i < 40; i++) {
+                var tbody = document.createElement('tbody');
+                tbody.setAttribute('class', 'tbody');
+
+                var td = document.createElement('td');
+                var td1 = createthtd('td1', data[i].id);
+                var td2 = createthtd('td2', data[i].name);
+                var td3 = createthtd('td3', data[i].email);
+
+                td.append(td1, td2, td3);
+                tbody.append(td);
+                table.append(thead, tbody);
+                container.append(table);
+                document.body.append(container)
+            }
+            }
+            function foo5(){
+                table.innerHTML=""
+            for (i = 40; i < 50; i++) {
+                var tbody = document.createElement('tbody');
+                tbody.setAttribute('class', 'tbody');
+
+                var td = document.createElement('td');
+                var td1 = createthtd('td1', data[i].id);
+                var td2 = createthtd('td2', data[i].name);
+                var td3 = createthtd('td3', data[i].email);
+
+                td.append(td1, td2, td3);
+                tbody.append(td);
+                table.append(thead, tbody);
+                container.append(table);
+                document.body.append(container)
+            }
+        }
+
+        function foo6(){
+            table.innerHTML=""
+            for (i = 50; i < 60; i++) {
+                var tbody = document.createElement('tbody');
+                tbody.setAttribute('class', 'tbody');
+
+                var td = document.createElement('td');
+                var td1 = createthtd('td1', data[i].id);
+                var td2 = createthtd('td2', data[i].name);
+                var td3 = createthtd('td3', data[i].email);
+
+                td.append(td1, td2, td3);
+                tbody.append(td);
+                table.append(thead, tbody);
+                container.append(table);
+                document.body.append(container)
+            }
+        }
+
+        function foo7(){
+            table.innerHTML=""
+            for (i = 60; i < 70; i++) {
+                var tbody = document.createElement('tbody');
+                tbody.setAttribute('class', 'tbody');
+
+                var td = document.createElement('td');
+                var td1 = createthtd('td1', data[i].id);
+                var td2 = createthtd('td2', data[i].name);
+                var td3 = createthtd('td3', data[i].email);
+
+                td.append(td1, td2, td3);
+                tbody.append(td);
+                table.append(thead, tbody);
+                container.append(table);
+                document.body.append(container)
+            }
+        }
+
+        function foo8(){
+            table.innerHTML=""
+            for (i = 70; i < 80; i++) {
+                var tbody = document.createElement('tbody');
+                tbody.setAttribute('class', 'tbody');
+
+                var td = document.createElement('td');
+                var td1 = createthtd('td1', data[i].id);
+                var td2 = createthtd('td2', data[i].name);
+                var td3 = createthtd('td3', data[i].email);
+
+                td.append(td1, td2, td3);
+                tbody.append(td);
+                table.append(thead, tbody);
+                container.append(table);
+                document.body.append(container)
+            }
+        }
+
+        function foo9(){
+            table.innerHTML=""
+            for (i = 80; i < 90; i++) {
+                var tbody = document.createElement('tbody');
+                tbody.setAttribute('class', 'tbody');
+
+                var td = document.createElement('td');
+                var td1 = createthtd('td1', data[i].id);
+                var td2 = createthtd('td2', data[i].name);
+                var td3 = createthtd('td3', data[i].email);
+
+                td.append(td1, td2, td3);
+                tbody.append(td);
+                table.append(thead, tbody);
+                container.append(table);
+                document.body.append(container)
+            }
+        }
+
+        function foo10(){
+            table.innerHTML=""
+            for (i = 90; i < 100; i++) {
+                var tbody = document.createElement('tbody');
+                tbody.setAttribute('class', 'tbody');
+
+                var td = document.createElement('td');
+                var td1 = createthtd('td1', data[i].id);
+                var td2 = createthtd('td2', data[i].name);
+                var td3 = createthtd('td3', data[i].email);
+
+                td.append(td1, td2, td3);
+                tbody.append(td);
+                table.append(thead, tbody);
+                container.append(table);
+                document.body.append(container)
+            }
+        }
+
+        function foo_first(){
+            table.innerHTML=""
+            for (i = 0; i < 10; i++) {
+                var tbody = document.createElement('tbody');
+                tbody.setAttribute('class', 'tbody');
+
+                var td = document.createElement('td');
+                var td1 = createthtd('td1', data[i].id);
+                var td2 = createthtd('td2', data[i].name);
+                var td3 = createthtd('td3', data[i].email);
+
+                td.append(td1, td2, td3);
+                tbody.append(td);
+                table.append(thead, tbody);
+                container.append(table);
+                document.body.append(container)
+            }
+        }
+
+        function foo_last(){
+            table.innerHTML=""
+            for (i = 90; i < 100; i++) {
+                var tbody = document.createElement('tbody');
+                tbody.setAttribute('class', 'tbody');
+
+                var td = document.createElement('td');
+                var td1 = createthtd('td1', data[i].id);
+                var td2 = createthtd('td2', data[i].name);
+                var td3 = createthtd('td3', data[i].email);
+
+                td.append(td1, td2, td3);
+                tbody.append(td);
+                table.append(thead, tbody);
+                container.append(table);
+                document.body.append(container)
+            }
+        }
+
+        function foo_prev(){
+            table.innerHTML=""
+        
+           var click_store=document.querySelectorAll(".button");
+           var data_store=[]
+           for(i=0;i<click_store.length;i++){
+        console.log(click_store[i]);
+        
+           }
+              
+           
+        }
+
+
+        }
+
+    </script>
+</body>
+
+</html>
